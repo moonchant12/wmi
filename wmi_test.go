@@ -30,8 +30,16 @@ func TestCreateProcess(t *testing.T) {
 			return errCallMethod
 		}
 		if ret != 0 {
-			t.Errorf("Return code: %v", ret)
-			return fmt.Errorf("Return code: %v", ret)
+			reason := map[int32]string{
+				0:  "Successful completion",
+				2:  "Access denied",
+				3:  "Insufficient privilege",
+				8:  "Unknown failure",
+				9:  "Path not found",
+				21: "Invalid parameter",
+			}[ret]
+			t.Errorf("Return code: %v %v", ret, reason)
+			return fmt.Errorf("Return code: %v %v", ret, reason)
 		}
 		if pid == 0 {
 			t.Errorf("Process ID: %v", pid)
