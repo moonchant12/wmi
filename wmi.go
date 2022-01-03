@@ -72,8 +72,8 @@ func CallMethod(className, methodName string, params ...interface{}) (int32, err
 // Query usage: wmi.Query("SELECT Name, HandleCount FROM Win32_Process", &res)
 //
 // var res []struct {
-// 	Name        string
-// 	HandleCount uint32
+// Name        string
+// HandleCount uint32
 // }
 //
 // Query runs the WQL query and appends the values to dst.
