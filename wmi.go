@@ -59,7 +59,7 @@ func With(className string, do func(class *ole.IDispatch) error) error {
 	return nil
 }
 
-// CallMethod usage: wmi.CallMethod(nil, "Win32_Process", "Create", []interface{}{"cmd /C notepad.exe", "C:\\Windows\\System32", objStartupConfig, &pid})
+// CallMethod usage: wmi.CallMethod("Win32_Process", "Create", "cmd /C notepad.exe", "C:\\Windows\\System32", objStartupConfig, &pid)
 //
 // CallMethod calls a method named methodName on an instance of the class named
 // className, with the given params.
